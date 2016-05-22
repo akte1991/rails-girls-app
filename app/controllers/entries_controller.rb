@@ -22,10 +22,20 @@ class EntriesController < ApplicationController
       redirect_to(entry_path(entry))
     end
 
+    def destroy
+     entry = Entry.find(params[:id])
+     entry.destroy
+     redirect_to entries_path
+    end
+    
     private
     
     def entry_params
       params.require(:entry).permit(:title, :contents)
     end
     
+    def entry_params
+    params.require(:entry).permit(:title, :contents)
+    end
+
 end
