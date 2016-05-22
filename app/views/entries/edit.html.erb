@@ -1,9 +1,15 @@
 <%= form_for(@entry) do |form| %>
-  <p><%= form.label("title") %></p>
-  <p><%= form.text_field("title") %></p>
-  <p><%= form.label("contents") %></p>
-  <p><%= form.text_area("contents") %></p>
-  <%= form.submit("edytuj", class: "color") %>
+  <form>
+    <div class="form-group">
+      <%= form.label("title") %>
+      <%= form.text_field("title", class: "form-control") %>
+    </div>
+    <div class="form-group">
+      <%= form.label("contents") %>
+      <%= form.text_area("contents", class: "form-control") %>
+    </div>
+    <%= form.submit("wyślij", class: "btn btn-danger") %>
+    </form>
 <% end %>
 <p><%= link_to("Back to this entry", entry_path(@entry)) %></p>
 <p><%= link_to("Back to all entries", entries_path) %></p>

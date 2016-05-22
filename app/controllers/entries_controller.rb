@@ -3,11 +3,13 @@ class EntriesController < ApplicationController
       @entry = Entry.find(params["id"])
     end
     def index
-         @entries = Entry.order(date: :asc)
+         @entries = Entry.order(date: :desc)
     end
     
     def create
       entry = Entry.create(entry_params)
+      entry.date = Date.today
+      entry.save
       redirect_to(entry_path(entry))
     end
     
